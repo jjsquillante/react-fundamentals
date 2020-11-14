@@ -11,12 +11,12 @@
   <script type="text/babel">
     const className = 'container';
     const title = 'Hello World';
-    const props = {className, title};
+    const props = { className, title };
 
-    function HelloWorld({className, title}) {
+    function HelloWorld({ className, title }) {
       return <div className={className}>{title}</div>;
     }
 
-    ReactDOM.render(HelloWorld({...props}), document.getElementById('root'));
+    ReactDOM.render(HelloWorld({ ...props }), document.getElementById('root'));
   </script>
 </body>
