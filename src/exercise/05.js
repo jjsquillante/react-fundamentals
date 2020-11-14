@@ -1,29 +1,46 @@
 // Styling
 // http://localhost:3000/isolated/exercise/05.js
 
-import * as React from 'react'
-import '../box-styles.css'
+import React from 'react';
+import '../box-styles.css';
 
-// 💰 Use the className for the size and style (backgroundColor) for the color
-// 💰 each of the elements should also have the "box" className applied
+const boxes = [
+  {
+    id: 1,
+    size: 'small',
+    color: 'lightblue',
+    desc: 'small lightblue box',
+  },
+  {
+    id: 2,
+    size: 'medium',
+    color: 'pink',
+    desc: 'medium pink box',
+  },
+  {
+    id: 3,
+    size: 'large',
+    color: 'orange',
+    desc: 'large orange box',
+  },
+];
 
-// 🐨 add a className prop to each of these and apply the correct class names
-// 💰 Here are the available class names: box, box--large, box--medium, box--small
-
-// 🐨 add a style prop to each of them as well so their background color
-// matches what the text says it should be as well as `fontStyle: 'italic'`
-const smallBox = <div>small lightblue box</div>
-const mediumBox = <div>medium pink box</div>
-const largeBox = <div>large orange box</div>
+function Box({ color, desc, size }) {
+  return (
+    <div className={`box box--${size}`} style={{ backgroundColor: color }}>
+      {desc}
+    </div>
+  );
+}
 
 function App() {
   return (
-    <div>
-      {smallBox}
-      {mediumBox}
-      {largeBox}
-    </div>
-  )
+    <>
+      {boxes.map(({ color, desc, id, size }) => (
+        <Box key={id} size={size} desc={desc} color={color} />
+      ))}
+    </>
+  );
 }
 
-export default App
+export default App;
